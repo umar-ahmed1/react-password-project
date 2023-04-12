@@ -42,7 +42,7 @@ export default function Password() {
       else if (passwordCrack.score === 3) setStrengthColor('green.400');
       else if (passwordCrack.score === 4) setStrengthColor('blue.400');
     }
-  }, [passwordCrack]);
+  }, [passwordCrack,password]);
 
   return (
     <>

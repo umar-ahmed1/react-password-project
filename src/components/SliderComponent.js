@@ -35,7 +35,7 @@ export default function SliderComponent(props) {
         },
         ])
       }
-    },[props.attackType])
+    },[props.attackType,props.data])
   
     React.useEffect(() => {
       const interval = setInterval(() => {
@@ -54,7 +54,7 @@ export default function SliderComponent(props) {
               <Text fontSize="14px">{texts[index].rate}</Text>
             <Flex>
               <Text fontSize="14px" mr={1}>{texts[index].type}</Text>
-              <Text fontSize="14px" mr={1} fontWeight={700} color={props.attackType == 'online' ? 'blue.400' : 'red.400'}>{props.attackType}</Text>
+              <Text fontSize="14px" mr={1} fontWeight={700} color={props.attackType === 'online' ? 'blue.400' : 'red.400'}>{props.attackType}</Text>
               <Text fontSize="14px">attack</Text>
             </Flex>
           </>
