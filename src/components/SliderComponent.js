@@ -8,12 +8,12 @@ export default function SliderComponent(data) {
         {
             time:data.data.crack_times_display.online_throttling_100_per_hour,
             rate:"at a rate of 100 guesses per hour",
-            type:"via an unthrottled online attack"
+            type:"via a throttled online attack"
         },
         {
             time:data.data.crack_times_display.online_no_throttling_10_per_second,
             rate:"at a rate of 10 guesses per second",
-            type:"via a throttled online attack"
+            type:"via an unthrottled online attack"
         },
         {
             time:data.data.crack_times_display.offline_slow_hashing_1e4_per_second,
