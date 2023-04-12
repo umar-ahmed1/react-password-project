@@ -10,9 +10,11 @@ import {
   Stack,
   Text,
   Tooltip,
+  Icon
 } from '@chakra-ui/react';
 import React from 'react';
 import SliderComponent from './SliderComponent';
+import {AiOutlineQuestionCircle} from 'react-icons/ai'
 
 export default function Password() {
   var zxcvbn = require('zxcvbn');
@@ -34,11 +36,11 @@ export default function Password() {
 
   React.useEffect(() => {
     if (password) {
-        if (passwordCrack.score == 0) setStrengthColor('red.500')
-        else if (passwordCrack.score == 1) setStrengthColor('orange.400')
-        else if (passwordCrack.score == 2) setStrengthColor('yellow.400')
-        else if (passwordCrack.score == 3) setStrengthColor('green.400')
-        else if (passwordCrack.score == 4) setStrengthColor('blue.400')
+        if (passwordCrack.score === 0) setStrengthColor('red.500')
+        else if (passwordCrack.score === 1) setStrengthColor('orange.400')
+        else if (passwordCrack.score === 2) setStrengthColor('yellow.400')
+        else if (passwordCrack.score === 3) setStrengthColor('green.400')
+        else if (passwordCrack.score === 4) setStrengthColor('blue.400')
     }
   }, [passwordCrack]);
 
@@ -150,26 +152,32 @@ export default function Password() {
               <Text mb={1} fontWeight={700} fontSize='25px' color="blue.400">
                   How Long Would It Take To Crack Your Password?
               </Text>   
-              <RadioGroup defaultValue="2" onChange={setAttackType} value={attackType}>
-                <Stack spacing={5} direction="row" mt={3}>
-                    <Tooltip fontSize="12px" label="An online password attack involves attempting to guess or crack a password by submitting login attempts through a website or application's login page, typically using automated tools or scripts. This method requires an active internet connection and access to the login page.">
-                        <span>
+              <RadioGroup defaultValue="2" onChange={setAttackType} value={attackType} width='100%'>
+                <Stack spacing={5} direction="row" mt={3} width='100%'>
+                    <Tooltip hasArrow fontSize="12px" label="An online password attack involves attempting to guess or crack a password by submitting login attempts through a website or application's login page, typically using automated tools or scripts. This method requires an active internet connection and access to the login page.">
+                        <Flex align='center' width='50%'>
                             <Radio colorScheme="blue" value="Online">
-                                <Text fontSize='20px'>Online Attack</Text>
+                                <Flex align='center'>
+                                  <Text mr={2} fontSize='20px'>Online Attack</Text>
+                                  <Icon fontSize={19} as={AiOutlineQuestionCircle}></Icon>
+                                </Flex>
                             </Radio>
-                        </span>
+                        </Flex>
                     </Tooltip>
-                    <Tooltip fontSize="12px" label="An offline hash-based attack involves cracking passwords without internet by accessing a system's database, where passwords are stored as hash values. Attackers use tools to apply the hash function to numerous potential passwords to find a matching stolen hash value.">
-                        <span>
+                    <Tooltip hasArrow fontSize="12px" label="An offline hash-based attack involves cracking passwords without internet by accessing a system's database, where passwords are stored as hash values. Attackers use tools to apply the hash function to numerous potential passwords to find a matching stolen hash value.">
+                        <Flex align='center' width='50%'>
                             <Radio colorScheme="blue" value="Offline">
-                                <Text fontSize='20px'>Offline Attack</Text>
+                                <Flex align='center'>
+                                  <Text mr={2} fontSize='20px'>Offline Attack</Text>
+                                  <Icon fontSize={19} as={AiOutlineQuestionCircle}></Icon>
+                                </Flex>
                             </Radio>
-                        </span>
+                        </Flex>
                     </Tooltip>
                 </Stack>
               </RadioGroup>
               {password && Object.keys(passwordCrack).length !== 0 && (
-                <SliderComponent data={passwordCrack}/>
+                <SliderComponent data={passwordCrack} attackType={attackType}/>
               )} 
             </Stack>
           </Flex>
