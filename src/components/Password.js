@@ -15,6 +15,7 @@ import {
 import React from 'react';
 import SliderComponent from './SliderComponent';
 import { AiOutlineQuestionCircle } from 'react-icons/ai';
+import PasswordContains from './PasswordContains';
 
 export default function Password() {
   var zxcvbn = require('zxcvbn');
@@ -147,6 +148,7 @@ export default function Password() {
               </Text>
             </Flex>
           </Flex>
+          <PasswordContains password={password}/>
           <Flex justify="center" align="center" textAlign="center" mt={2}>
             <Stack align="center" mt={6} height="300px">
               <Text mb={1} fontWeight={700} fontSize="25px" color="blue.400">
