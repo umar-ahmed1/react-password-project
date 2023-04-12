@@ -38,8 +38,8 @@ export default function Password() {
 
   return (
     <>
-      <Flex direction="column" justify="center" align="center" mt={20} ml="6%">
-        <Flex direction="column" width="25%" align="center" justify="center">
+      <Flex direction="column" justify="center" align="center" mt={20} ml={{base:'0%',lg:"6%"}}>
+        <Flex direction="column" width={{base:'50%',sm:'40%',md:'30%',lg:"25%"}} align="center" justify="center">
           <Flex width="70%">
             <Text
               align="center"
@@ -55,6 +55,7 @@ export default function Password() {
             border="2px solid"
             borderColor="black.200"
             position="relative"
+            mt={6}
           >
             <Input
               textAlign="center"
@@ -108,7 +109,8 @@ export default function Password() {
             </Flex>
           </Flex>
 
-          <Stack align="center" mt={4}>
+          <Stack align="center" mt={4} height='200px'>
+            {password.length === 0 && <Text>Estimated time to crack your password:</Text>}
             {password && Object.keys(passwordCrack).length !== 0 && <SliderComponent data={passwordCrack}/>}
           </Stack>
         </Flex>
