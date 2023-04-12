@@ -16,6 +16,7 @@ export default function Password() {
   const [password, setPassword] = React.useState('');
   const [passwordCrack, setPasswordCrack] = React.useState({});
   const [show, setShow] = React.useState(false);
+  const [strengthColor,setStrengthColor] = React.useState('black.100')
 
   const handlePasswordChange = formPassword => {
     setPassword(formPassword);
@@ -28,11 +29,12 @@ export default function Password() {
   }, [password, passwordCrack]);
 
   React.useEffect(() => {
-    if (
-      password &&
-      passwordCrack.crack_times_display.online_throttling_100_per_hour !== 50
-    ) {
-      console.log(50);
+    if (password) {
+        if (passwordCrack.score == 0) setStrengthColor('red.500')
+        else if (passwordCrack.score == 1) setStrengthColor('orange.400')
+        else if (passwordCrack.score == 2) setStrengthColor('yellow.400')
+        else if (passwordCrack.score == 3) setStrengthColor('green.400')
+        else if (passwordCrack.score == 4) setStrengthColor('blue.400')
     }
   }, [passwordCrack]);
 
@@ -40,7 +42,7 @@ export default function Password() {
     <>
       <Flex direction="column" justify="center" align="center" mt={20} ml={{base:'0%',lg:"6%"}}>
         <Flex direction="column" width={{base:'50%',sm:'40%',md:'30%',lg:"25%"}} align="center" justify="center">
-          <Flex width="70%">
+          <Flex width={{base:'100%',sm:"70%"}}>
             <Text
               align="center"
               fontSize="30px"
@@ -52,6 +54,7 @@ export default function Password() {
           </Flex>
           <InputGroup
             height="50px"
+            borderRadius={7}
             border="2px solid"
             borderColor="black.200"
             position="relative"
@@ -63,7 +66,7 @@ export default function Password() {
               value={password}
               border="none"
               placeholder="Enter password"
-              fontSize="20px"
+              fontSize={{base:'15px',md:'17px',lg:'20px'}}
               height="100%"
               onChange={e => handlePasswordChange(e.target.value)}
             ></Input>
@@ -98,8 +101,8 @@ export default function Password() {
             justify="center"
           >
             <Flex>
-              <Text fontSize="20px">Strength:</Text>
-              <Text ml={2} fontSize="20px">
+              <Text fontSize={{base:'13px',sm:'17px',md:'20px'}} fontWeight={700}>Strength:</Text>
+              <Text ml={2} fontSize={{base:'13px',sm:'17px',md:'20px'}} fontWeight={700} color={strengthColor}>
                 {password && passwordCrack.score === 0 && 'Very Weak'}
                 {password && passwordCrack.score === 1 && 'Weak'}
                 {password && passwordCrack.score === 2 && 'Medium'}
@@ -108,11 +111,12 @@ export default function Password() {
               </Text>
             </Flex>
           </Flex>
-
-          <Stack align="center" mt={4} height='200px'>
-            {password.length === 0 && <Text>Estimated time to crack your password:</Text>}
-            {password && Object.keys(passwordCrack).length !== 0 && <SliderComponent data={passwordCrack}/>}
-          </Stack>
+          <Flex justify='center' align='center' textAlign='center'>
+            <Stack align="center" mt={4} height='200px'>
+                {password.length === 0 && <Text>Estimated time to crack your password:</Text>}
+                {password && Object.keys(passwordCrack).length !== 0 && <SliderComponent data={passwordCrack}/>}
+            </Stack>
+          </Flex>
         </Flex>
       </Flex>
     </>
