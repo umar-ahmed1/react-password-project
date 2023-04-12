@@ -41,7 +41,7 @@ export default function Password() {
   return (
     <>
       <Flex direction="column" justify="center" align="center" mt={20} ml={{base:'0%',lg:"6%"}}>
-        <Flex direction="column" width={{base:'50%',sm:'40%',md:'30%',lg:"25%"}} align="center" justify="center">
+        <Flex direction="column" width={{base:'50%',sm:'40%',md:'35%',lg:"25%"}} align="center" justify="center">
           <Flex width={{base:'100%',sm:"70%"}}>
             <Text
               align="center"
@@ -66,12 +66,12 @@ export default function Password() {
               value={password}
               border="none"
               placeholder="Enter password"
-              fontSize={{base:'15px',md:'17px',lg:'20px'}}
+              fontSize={{base:'14px',sm:'15px',md:'17px',lg:'20px'}}
               height="100%"
               onChange={e => handlePasswordChange(e.target.value)}
             ></Input>
-            <InputRightElement width="4rem" height="100%" right={0}>
-              <Button h="100%" width="100%" onClick={() => setShow(!show)}>
+            <InputRightElement width={{base:'2rem',md:'3rem',lg:"4rem"}} height="100%" right={{base:1,md:0.5,lg:0}}>
+              <Button h="100%" width="100%" fontSize={{base:'13px',md:'15px'}} onClick={() => setShow(!show)}>
                 {show ? 'Hide' : 'Show'}
               </Button>
             </InputRightElement>
