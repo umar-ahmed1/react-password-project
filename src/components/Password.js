@@ -1,4 +1,13 @@
-import { Box, Button, Flex, Input, InputGroup, InputRightElement, Stack, Text } from '@chakra-ui/react';
+import {
+  Box,
+  Button,
+  Flex,
+  Input,
+  InputGroup,
+  InputRightElement,
+  Stack,
+  Text,
+} from '@chakra-ui/react';
 import React from 'react';
 import SliderComponent from './SliderComponent';
 
@@ -6,10 +15,9 @@ export default function Password() {
   var zxcvbn = require('zxcvbn');
   const [password, setPassword] = React.useState('');
   const [passwordCrack, setPasswordCrack] = React.useState({});
-  const [show,setShow] = React.useState(false)
-  
+  const [show, setShow] = React.useState(false);
 
-  const handlePasswordChange = (formPassword) => {
+  const handlePasswordChange = formPassword => {
     setPassword(formPassword);
     setPasswordCrack(zxcvbn(formPassword));
   };
@@ -20,10 +28,13 @@ export default function Password() {
   }, [password, passwordCrack]);
 
   React.useEffect(() => {
-    if(password && passwordCrack.crack_times_display.online_throttling_100_per_hour !== 50){
-        console.log(50)
+    if (
+      password &&
+      passwordCrack.crack_times_display.online_throttling_100_per_hour !== 50
+    ) {
+      console.log(50);
     }
-  },[passwordCrack])
+  }, [passwordCrack]);
 
   return (
     <>
@@ -39,19 +50,24 @@ export default function Password() {
               How Secure Is Your Password?
             </Text>
           </Flex>
-          <InputGroup  height='50px' border="2px solid" borderColor="black.200" position='relative'>
+          <InputGroup
+            height="50px"
+            border="2px solid"
+            borderColor="black.200"
+            position="relative"
+          >
             <Input
               textAlign="center"
               type={show ? 'text' : 'password'}
               value={password}
-              border='none'
+              border="none"
               placeholder="Enter password"
               fontSize="20px"
-              height='100%'
+              height="100%"
               onChange={e => handlePasswordChange(e.target.value)}
             ></Input>
-            <InputRightElement width='4rem' height='100%' right={0}>
-              <Button h="100%" width='100%' onClick={() => setShow(!show)}>
+            <InputRightElement width="4rem" height="100%" right={0}>
+              <Button h="100%" width="100%" onClick={() => setShow(!show)}>
                 {show ? 'Hide' : 'Show'}
               </Button>
             </InputRightElement>
@@ -93,18 +109,7 @@ export default function Password() {
           </Flex>
 
           <Stack align="center" mt={4}>
-            <Text>Estimated time to crack your password:</Text>
-            {password && passwordCrack !== {} && (
-              <Text fontSize="30px" fontWeight={700}>
-                {
-                  passwordCrack.crack_times_display
-                    .online_throttling_100_per_hour
-                }
-              </Text>
-            )}
-            <Text fontSize="13px">at a rate of 100 guesses per hour</Text>
-            <Text fontSize="13px">via an online attack</Text>
-            <SliderComponent />
+            {password && Object.keys(passwordCrack).length !== 0 && <SliderComponent data={passwordCrack}/>}
           </Stack>
         </Flex>
       </Flex>
