@@ -5,8 +5,11 @@ import {
   Input,
   InputGroup,
   InputRightElement,
+  Radio,
+  RadioGroup,
   Stack,
   Text,
+  Tooltip,
 } from '@chakra-ui/react';
 import React from 'react';
 import SliderComponent from './SliderComponent';
@@ -17,6 +20,7 @@ export default function Password() {
   const [passwordCrack, setPasswordCrack] = React.useState({});
   const [show, setShow] = React.useState(false);
   const [strengthColor,setStrengthColor] = React.useState('black.100')
+  const [attackType,setAttackType] = React.useState('Online')
 
   const handlePasswordChange = formPassword => {
     setPassword(formPassword);
@@ -40,9 +44,20 @@ export default function Password() {
 
   return (
     <>
-      <Flex direction="column" justify="center" align="center" mt={20} ml={{base:'0%',lg:"6%"}}>
-        <Flex direction="column" width={{base:'50%',sm:'40%',md:'35%',lg:"25%"}} align="center" justify="center">
-          <Flex width={{base:'100%',sm:"70%"}}>
+      <Flex
+        direction="column"
+        justify="center"
+        align="center"
+        mt={20}
+        ml={{ base: '0%', lg: '6%' }}
+      >
+        <Flex
+          direction="column"
+          width={{ base: '50%', sm: '40%', md: '35%', lg: '25%' }}
+          align="center"
+          justify="center"
+        >
+          <Flex width={{ base: '100%', sm: '70%' }}>
             <Text
               align="center"
               fontSize="30px"
@@ -66,12 +81,21 @@ export default function Password() {
               value={password}
               border="none"
               placeholder="Enter password"
-              fontSize={{base:'14px',sm:'15px',md:'17px',lg:'20px'}}
+              fontSize={{ base: '14px', sm: '15px', md: '17px', lg: '20px' }}
               height="100%"
               onChange={e => handlePasswordChange(e.target.value)}
             ></Input>
-            <InputRightElement width={{base:'2rem',md:'3rem',lg:"4rem"}} height="100%" right={{base:1,md:0.5,lg:0}}>
-              <Button h="100%" width="100%" fontSize={{base:'13px',md:'15px'}} onClick={() => setShow(!show)}>
+            <InputRightElement
+              width={{ base: '2rem', md: '3rem', lg: '4rem' }}
+              height="100%"
+              right={{ base: 1, md: 0.5, lg: 0 }}
+            >
+              <Button
+                h="100%"
+                width="100%"
+                fontSize={{ base: '13px', md: '15px' }}
+                onClick={() => setShow(!show)}
+              >
                 {show ? 'Hide' : 'Show'}
               </Button>
             </InputRightElement>
@@ -101,8 +125,18 @@ export default function Password() {
             justify="center"
           >
             <Flex>
-              <Text fontSize={{base:'13px',sm:'17px',md:'20px'}} fontWeight={700}>Strength:</Text>
-              <Text ml={2} fontSize={{base:'13px',sm:'17px',md:'20px'}} fontWeight={700} color={strengthColor}>
+              <Text
+                fontSize={{ base: '13px', sm: '17px', md: '20px' }}
+                fontWeight={700}
+              >
+                Strength:
+              </Text>
+              <Text
+                ml={2}
+                fontSize={{ base: '13px', sm: '17px', md: '20px' }}
+                fontWeight={700}
+                color={strengthColor}
+              >
                 {password && passwordCrack.score === 0 && 'Very Weak'}
                 {password && passwordCrack.score === 1 && 'Weak'}
                 {password && passwordCrack.score === 2 && 'Medium'}
@@ -111,10 +145,32 @@ export default function Password() {
               </Text>
             </Flex>
           </Flex>
-          <Flex justify='center' align='center' textAlign='center'>
-            <Stack align="center" mt={4} height='200px'>
-                {password.length === 0 && <Text>Estimated time to crack your password:</Text>}
-                {password && Object.keys(passwordCrack).length !== 0 && <SliderComponent data={passwordCrack}/>}
+          <Flex justify="center" align="center" textAlign="center" mt={2}>
+            <Stack align="center" mt={6} height="300px">
+              <Text mb={1} fontWeight={700} fontSize='25px' color="blue.400">
+                  How Long Would It Take To Crack Your Password?
+              </Text>   
+              <RadioGroup defaultValue="2" onChange={setAttackType} value={attackType}>
+                <Stack spacing={5} direction="row" mt={3}>
+                    <Tooltip fontSize="12px" label="An online password attack involves attempting to guess or crack a password by submitting login attempts through a website or application's login page, typically using automated tools or scripts. This method requires an active internet connection and access to the login page.">
+                        <span>
+                            <Radio colorScheme="blue" value="Online">
+                                <Text fontSize='20px'>Online Attack</Text>
+                            </Radio>
+                        </span>
+                    </Tooltip>
+                    <Tooltip fontSize="12px" label="An offline hash-based attack involves cracking passwords without internet by accessing a system's database, where passwords are stored as hash values. Attackers use tools to apply the hash function to numerous potential passwords to find a matching stolen hash value.">
+                        <span>
+                            <Radio colorScheme="blue" value="Offline">
+                                <Text fontSize='20px'>Offline Attack</Text>
+                            </Radio>
+                        </span>
+                    </Tooltip>
+                </Stack>
+              </RadioGroup>
+              {password && Object.keys(passwordCrack).length !== 0 && (
+                <SliderComponent data={passwordCrack}/>
+              )} 
             </Stack>
           </Flex>
         </Flex>

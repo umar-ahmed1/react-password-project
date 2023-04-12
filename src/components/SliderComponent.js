@@ -38,7 +38,6 @@ export default function SliderComponent(data) {
   
     return (
       <>
-        <Text>Estimated time to crack your password:</Text>
           <Text fontSize="30px" fontWeight={700}>
             {texts[index].time}
           </Text>
