@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text } from '@chakra-ui/react';
+import { Flex, Text } from '@chakra-ui/react';
 
 export default function SliderComponent(props) {
     const [index, setIndex] = React.useState(0);
@@ -7,17 +7,17 @@ export default function SliderComponent(props) {
 
     React.useEffect(() => {
       console.log(props.attackType)
-      if(props.attackType === 'Online'){
+      if(props.attackType === 'online'){
         setTexts([
           {
             time:props.data.crack_times_display.online_throttling_100_per_hour,
             rate:"at a rate of 100 guesses per hour",
-            type:"via a throttled online attack"
+            type:"via a throttled"
         },
         {
             time:props.data.crack_times_display.online_no_throttling_10_per_second,
             rate:"at a rate of 10 guesses per second",
-            type:"via an unthrottled online attack"
+            type:"via an unthrottled"
         },
         ])
       }
@@ -26,12 +26,12 @@ export default function SliderComponent(props) {
           {
             time:props.data.crack_times_display.offline_slow_hashing_1e4_per_second,
             rate:"at a rate of 1000 guesses per second",
-            type:"via an offline attack"
+            type:"via a slow"
         },
         {
             time:props.data.crack_times_display.offline_fast_hashing_1e10_per_second,
             rate:"at a rate of 1x10^10 guesses per second",
-            type:"via an offline attack"
+            type:"via a fast"
         },
         ])
       }
@@ -40,7 +40,7 @@ export default function SliderComponent(props) {
     React.useEffect(() => {
       const interval = setInterval(() => {
         setIndex((prevIndex) => (prevIndex + 1) % texts.length);
-      }, 4000);
+      }, 5000);
       return () => clearInterval(interval);
     }, [texts.length]);
   
@@ -51,8 +51,12 @@ export default function SliderComponent(props) {
             <Text fontSize="30px" fontWeight={700}>
               {texts[index].time}
             </Text>
-            <Text fontSize="13px">{texts[index].rate}</Text>
-            <Text fontSize="13px">{texts[index].type}</Text>
+              <Text fontSize="14px">{texts[index].rate}</Text>
+            <Flex>
+              <Text fontSize="14px" mr={1}>{texts[index].type}</Text>
+              <Text fontSize="14px" mr={1} fontWeight={700} color={props.attackType == 'online' ? 'blue.400' : 'red.400'}>{props.attackType}</Text>
+              <Text fontSize="14px">attack</Text>
+            </Flex>
           </>
         )}
       </>

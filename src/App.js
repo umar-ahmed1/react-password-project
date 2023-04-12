@@ -5,12 +5,16 @@ import {
 } from '@chakra-ui/react';
 import Password from './components/Password';
 import Header from './components/Header';
+import InfoComponent from './components/InfoComponent';
+import TipsComponent from './components/TipsComponent';
 
 function App() {
   return (
     <ChakraProvider theme={theme}>
       <Header/>
       <Password/>
+      <InfoComponent/>
+      <TipsComponent/>
     </ChakraProvider>
   );
 }
