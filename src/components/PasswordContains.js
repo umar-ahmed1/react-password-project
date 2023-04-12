@@ -35,12 +35,12 @@ export default function PasswordContains(props) {
 
   return (
     <Stack spacing={3} align="center" justify="center" mt={5}>
-      <Text>Contains:</Text>
+      <Text fontWeight={700} fontSize='19px'>Contains:</Text>
       <Flex align="center" justify="space-between" width='100%'>
         <Text mr={2}>8+ Characters</Text>
         <Icon
           fontSize={
-            hasEightOrMoreCharacters(props.password) ? 29 : 25
+            hasEightOrMoreCharacters(props.password) ? 29 : 26
           }
           fontWeight={700}
           color={
@@ -58,7 +58,7 @@ export default function PasswordContains(props) {
         <Icon
           
           fontSize={
-            hasLowercase(props.password) ? 29 : 25
+            hasLowercase(props.password) ? 29 : 26
           }
           color={
             hasLowercase(props.password) ? 'green.400' : 'red.400'
@@ -73,7 +73,7 @@ export default function PasswordContains(props) {
       <Flex align="center" justify="space-between" width='100%'>
         <Text mr={2}>Upper Case</Text>
         <Icon
-          fontSize={hasUppercase(props.password) ? 29 : 25}
+          fontSize={hasUppercase(props.password) ? 29 : 26}
           color={
             hasUppercase(props.password) ? 'green.400' : 'red.400'
           }
@@ -87,7 +87,7 @@ export default function PasswordContains(props) {
       <Flex align="center" justify="space-between" width='100%'>
         <Text mr={2}>Numbers</Text>
         <Icon
-          fontSize={hasNumber(props.password) ? 29 : 25}
+          fontSize={hasNumber(props.password) ? 29 : 26}
           color={
             hasNumber(props.password) ? 'green.400' : 'red.400'
           }
@@ -101,7 +101,7 @@ export default function PasswordContains(props) {
       <Flex align="center" justify="space-between" width='100%'>
         <Text mr={2}>Symbol</Text>
         <Icon
-          fontSize={hasSymbol(props.password) ? 29 : 25}
+          fontSize={hasSymbol(props.password) ? 29 : 26}
           color={
             hasSymbol(props.password) ? 'green.400' : 'red.400'
           }

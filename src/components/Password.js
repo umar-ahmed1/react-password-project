@@ -149,24 +149,26 @@ export default function Password() {
             </Flex>
           </Flex>
           <PasswordContains password={password}/>
-          <Flex justify="center" align="center" textAlign="center" mt={2}>
-            <Stack align="center" mt={6} height="300px">
+          
+          <Flex justify="center" align="center" textAlign="center" direction='column' mt={6}>
               <Text mb={1} fontWeight={700} fontSize="25px" color="blue.400">
                 How Long Would It Take To Crack Your Password?
               </Text>
+            <Stack align="center" mt={2} height="200px" border='1px solid' borderColor='blue.400' width='100%' p={3}>
               <RadioGroup
                 defaultValue="2"
                 onChange={setAttackType}
                 value={attackType}
                 width="100%"
+                justify='space-between'
               >
-                <Stack spacing={5} direction="row" mt={3} width="100%">
+                <Stack direction="row" mt={3} width="100%">
                   <Tooltip
                     hasArrow
                     fontSize="12px"
                     label="An online password attack involves attempting to guess or crack a password by submitting login attempts through a website or application's login page, typically using automated tools or scripts. This method requires an active internet connection and access to the login page."
                   >
-                    <Flex align="center" width="50%">
+                    <Flex align="center" width="50%" justify='center'>
                       <Radio colorScheme="blue" value="online">
                         <Flex align="center">
                           <Text mr={2} fontSize="20px">
@@ -185,7 +187,7 @@ export default function Password() {
                     fontSize="12px"
                     label="An offline hash-based attack involves cracking passwords without internet by accessing a system's database, where passwords are stored as hash values. Attackers use tools to apply the hash function to numerous potential passwords to find a matching stolen hash value."
                   >
-                    <Flex align="center" width="50%">
+                    <Flex align="center" width="50%" justify='center'>
                       <Radio colorScheme="red" value="offline">
                         <Flex align="center">
                           <Text mr={2} fontSize="20px">
