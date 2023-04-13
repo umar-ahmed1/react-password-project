@@ -13,8 +13,8 @@ function App() {
     <ChakraProvider theme={theme}>
       <Header/>
       <Password/>
-      <InfoComponent/>
       <TipsComponent/>
+      <InfoComponent/>
     </ChakraProvider>
   );
 }
