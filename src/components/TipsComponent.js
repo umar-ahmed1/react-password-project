@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Flex, Stack, Text } from '@chakra-ui/react';
+import { Box, Flex, Stack, Text,AspectRatio } from '@chakra-ui/react';
 
 export default function TipsComponent() {
   return (
@@ -234,6 +234,14 @@ export default function TipsComponent() {
             </Box>
           </Flex>
         </Stack>
+        <Flex width='100%' height='100%' mt={4} justify='space-between' direction={{ base: 'column', md: 'row' }}>
+          <Flex width={{base:'100%',md:'50%'}} height='100%' mr={{base:0,md:2}} mb={{base:2,md:0}}>
+            <iframe width='100%' height='200px' title="Tips Video" src="https://www.youtube.com/embed/9LxdtaSvQ3I" allowFullScreen/>
+          </Flex>
+          <Flex width={{base:'100%',md:'50%'}} height='100%'>
+            <iframe width='100%' title="Tips Video" height='200px' src="https://www.youtube.com/embed/NrYhdkrTNMI" allowFullScreen/>
+          </Flex>
+        </Flex>
       </Flex>
     </Flex>
   );
