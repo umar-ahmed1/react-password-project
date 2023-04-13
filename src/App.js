@@ -7,6 +7,7 @@ import Password from './components/Password';
 import Header from './components/Header';
 import InfoComponent from './components/InfoComponent';
 import TipsComponent from './components/TipsComponent';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Password/>
       <TipsComponent/>
       <InfoComponent/>
+      <Footer/>
     </ChakraProvider>
   );
 }
