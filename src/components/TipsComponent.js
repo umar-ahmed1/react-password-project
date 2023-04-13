@@ -1,7 +1,62 @@
 import React from 'react';
 import { Box, Flex, Stack, Text,AspectRatio } from '@chakra-ui/react';
+import Tip from './Tip';
 
 export default function TipsComponent() {
+  const tips = [
+    {
+      title:"Don't use a common password",
+      color:"red.200",
+      number:0,
+      one:"qwerty",
+      two:"apple",
+      three:"123456",
+      altone:"Attackers have large databases of commonly used passwords. Without knowing any additional information about you, attackers can crack your password by simply trying every entry in their database, which is why it is imperative to use unique passwords. Different websites can have their own kinds of common passwords, so make sure to research online what kinds of passwords are common! "
+    },
+    {
+      title:"Don't include any personal information in your password",
+      color:"yellow.200",
+      number:1,
+      one:"Tanaka2003",
+      two:"Oct15Tanaka",
+      three:"TanakaOct142003",
+      altone:"Through web searches and social media, it is relatively easy to find personal information you included in your password. Attackers will find it simpler to guess your password and log into your account without your permission as a result. Another weakness it introduces is that the attacker may use the data they gathered to impersonate you and gain additional unauthorised access to your sensitive information."
+    },
+    {
+      title:"Use passwords that include at least eight letters, lowcase and uppercase letters, numbers, and symbols",
+      color:"orange.200",
+      number:2,
+      one:"T@n@ka62@31",
+      two:"Cp$C3@W!nT#R@3",
+      three:"J@n3T!$Th3B3$TPr0f",
+      altone:"Using a wide variety of characters and increasing the length of your password increases the total possible number of passwords and makes it more difficult for a hacker to brute force guessing your password.For example a password including only the alphabet of length 4 has 26^4 possible combinations while a similar password of length 8 has 26^8 combinations. That's over 456000x more combinations"
+    },
+    {
+      title:"Do not reuse your passwords",
+      color:"green.200",
+      number:3,
+      one:"Instagram: T@n@ka62@31",
+      two:"Twitter: J@n3T!$ThB3$TPr0f",
+      three:"Youtube:Cp$C3@W1nT#R@3",
+      altone:"This is because if attackers have your password for one account, they can also reuse that password to login to your other accounts and gain access to potentially sensitive information. An attack like this is known as credential stuffing."
+    },
+    {
+      title:"Avoid using names or words found in the dictionary",
+      color:"blue.200",
+      number:4,
+      one:"jack",
+      two:"orange",
+      three:"football",
+      altone:"Similar to the commonly used passwords, attackers can perform a dictionary attack, where they try every password in their database as well as try words from a dictionary in order to crack your password. This works because attackers use large databases that not only contain common passwords, but also passwords found from data leaks, along with words from dictionaries which are freely available. Avoiding pre-existing words from a language can boost the strength of your password for this very reason."
+    },
+    
+  ]
+
+  console.log(tips)
+
+
+
+
   return (
     <Flex
       direction="column"
@@ -41,198 +96,9 @@ export default function TipsComponent() {
           spacing={5}
           fontSize={{ base: '13px', sm: '14px', md: '15px' }}
         >
-          <Flex width="100%" align="center">
-            <Flex
-              cursor="pointer"
-              width={{base:'60px',md:"100px"}}
-              height={{base:'60px',md:"100px"}}
-              borderRadius="full"
-              border="1px solid grey"
-              align="center"
-              justify="center"
-              mr={{base:1,md:3}}
-              fontWeight={700}
-              _hover={{ backgroundColor: 'red.100', opacity:0.9}}
-            >
-              Why?
-            </Flex>
-            <Box
-              backgroundColor="red.200"
-              flexGrow={1}
-              height="100%"
-              borderRadius={10}
-              align="center"
-              justify="center"
-            >
-              <Flex
-                width="100%"
-                justify="center"
-                align="center"
-                direction="column"
-                p={1}
-              >
-                <Text fontWeight={700}>Don't use a common password</Text>
-                <Text>qwerty</Text>
-                <Text>apple</Text>
-                <Text>123456</Text>
-              </Flex>
-            </Box>
-          </Flex>
-          <Flex width="100%" align="center">
-            <Box
-              backgroundColor="yellow.200"
-              flexGrow={1}
-              height="100%"
-              borderRadius={10}
-              mr={{base:1,md:3}}
-              align="center"
-              justify="center"
-            >
-              <Flex
-                width="100%"
-                justify="center"
-                align="center"
-                direction="column"
-                p={1}
-              >
-                <Text fontWeight={700}>
-                  Don't include any personal information in your password
-                </Text>
-                <Text>Tanaka2003</Text>
-                <Text>Oct15Tanaka</Text>
-                <Text>TanakaOct142003</Text>
-              </Flex>
-            </Box>
-            <Flex
-              cursor="pointer"
-              width={{base:'60px',md:"100px"}}
-              height={{base:'60px',md:"100px"}}
-              borderRadius="full"
-              border="1px solid grey"
-              align="center"
-              justify="center"
-              fontWeight={700}
-              _hover={{ backgroundColor: 'yellow.100', opacity:0.9}}
-            >
-              Why?
-            </Flex>
-          </Flex>
-          <Flex width="100%" align="center">
-            <Flex
-              cursor="pointer"
-              width={{base:'60px',md:"100px"}}
-              height={{base:'60px',md:"100px"}}
-              borderRadius="full"
-              border="1px solid grey"
-              align="center"
-              justify="center"
-              mr={{base:1,md:3}}
-              fontWeight={700}
-              _hover={{ backgroundColor: 'orange.100', opacity:0.9}}
-            >
-              Why?
-            </Flex>
-            <Box
-              backgroundColor="orange.200"
-              flexGrow={1}
-              height="100%"
-              borderRadius={10}
-              align="center"
-              justify="center"
-            >
-              <Flex
-                width="100%"
-                justify="center"
-                align="center"
-                direction="column"
-                p={1}
-              >
-                <Text fontWeight={700}>
-                  Use passwords that include at least 8 letters, lower case,
-                  uppercase, numbers, and symbols
-                </Text>
-                <Text>T@n@ka62@31</Text>
-                <Text>Cp$C3@W!nT#R@3</Text>
-                <Text>J@n3T!$Th3B3$TPr0f</Text>
-              </Flex>
-            </Box>
-          </Flex>
-          <Flex height="120px" width="100%" align="center">
-            <Box
-              backgroundColor="green.200"
-              flexGrow={1}
-              height="100%"
-              borderRadius={10}
-              mr={{base:1,md:3}}
-              align="center"
-              justify="center"
-            >
-              <Flex
-                width="100%"
-                justify="center"
-                align="center"
-                direction="column"
-                p={1}
-              >
-                <Text fontWeight={700}>Do not reuse your passwords</Text>
-                <Text>Instagram: T@n@ka62@31</Text>
-                <Text>Twitter: J@n3T!$ThB3$TPr0f</Text>
-                <Text>Cp$C3@W1nT#R@3</Text>
-              </Flex>
-            </Box>
-            <Flex
-              cursor="pointer"
-              width={{base:'60px',md:"100px"}}
-              height={{base:'60px',md:"100px"}}
-              borderRadius="full"
-              border="1px solid grey"
-              align="center"
-              justify="center"
-              fontWeight={700}
-              _hover={{ backgroundColor: 'green.100', opacity:0.9}}
-            >
-              Why?
-            </Flex>
-          </Flex>
-          <Flex height="120px" width="100%" align="center">
-            <Flex
-              cursor="pointer"
-              width={{base:'60px',md:"100px"}}
-              height={{base:'60px',md:"100px"}}
-              borderRadius="full"
-              border="1px solid grey"
-              align="center"
-              justify="center"
-              mr={{base:1,md:3}}
-              fontWeight={700}
-              _hover={{ backgroundColor: 'blue.100', opacity:0.9}}
-            >
-              Why?
-            </Flex>
-            <Box
-              backgroundColor="blue.200"
-              flexGrow={1}
-              height="100%"
-              borderRadius={10}
-              align="center"
-              justify="center"
-            >
-              <Flex
-                width="100%"
-                justify="center"
-                align="center"
-                direction="column"
-                p={1}
-              >
-                <Text fontWeight={700}>
-                  Avoid using names or words found in the dictionary
-                </Text>
-                <Text>jack</Text>
-                <Text>orange</Text>
-                <Text>football</Text>
-              </Flex>
-            </Box>
-          </Flex>
+          {tips.map((tip, idx) => {
+          return <Tip key={idx} title={tip.title} color={tip.color} number={tip.number} one={tip.one} two={tip.two} three={tip.three} altone={tip.altone}></Tip>;
+        })}
         </Stack>
         <Flex width='100%' height='100%' mt={4} justify='space-between' direction={{ base: 'column', md: 'row' }}>
           <Flex width={{base:'100%',md:'50%'}} height='100%' mr={{base:0,md:2}} mb={{base:2,md:0}}>
