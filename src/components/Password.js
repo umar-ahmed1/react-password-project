@@ -56,7 +56,7 @@ export default function Password() {
       >
         <Flex
           direction="column"
-          width={{ base: '50%', sm: '40%', md: '35%', lg: '25%' }}
+          width={{ base: '70%', sm: '50%', md: '35%', lg: '25%' }}
           align="center"
           justify="center"
         >
@@ -154,7 +154,7 @@ export default function Password() {
               <Text mb={1} fontWeight={700} fontSize="25px" color="blue.400">
                 How Long Would It Take To Crack Your Password?
               </Text>
-            <Stack align="center" mt={2} height="200px" border='1px solid' borderColor='blue.400' width='100%' p={3}>
+            <Stack align="center" mt={2} height="220px" border='1px solid' borderColor='blue.400' width='100%' p={3}>
               <RadioGroup
                 defaultValue="2"
                 onChange={setAttackType}

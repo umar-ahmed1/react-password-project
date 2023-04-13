@@ -13,7 +13,7 @@ export default function InfoComponent() {
     >
       <Flex
         direction="column"
-        width={{ base: '50%', sm: '40%' }}
+        width={{ base: '70%', sm: '40%' }}
         align="center"
         justify="center"
       >
@@ -53,7 +53,7 @@ export default function InfoComponent() {
         justify="center"
       >
         <Text
-          width="50%"
+          width={{base:"75%",md:"50%"}}
           mr={{ base: 0, md: 4 }}
           mb={{ base: 8, md: 0 }}
           textAlign="center"
@@ -76,7 +76,7 @@ export default function InfoComponent() {
         </Text>
         <Text
           ml={{ base: 0, md: 4 }}
-          width="50%"
+          width={{base:"75%",md:"50%"}}
           textAlign="center"
           border="1px solid"
           borderColor="blue.400"
