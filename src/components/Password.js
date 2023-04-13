@@ -16,6 +16,7 @@ import React from 'react';
 import SliderComponent from './SliderComponent';
 import { AiOutlineQuestionCircle } from 'react-icons/ai';
 import PasswordContains from './PasswordContains';
+import PersonalizedTips from './PersonalizedTips';
 
 export default function Password() {
   var zxcvbn = require('zxcvbn');
@@ -208,6 +209,9 @@ export default function Password() {
               )}
             </Stack>
           </Flex>
+          {password && Object.keys(passwordCrack).length !== 0 && (
+                <PersonalizedTips suggestions={passwordCrack.feedback.suggestions} sequence={passwordCrack.sequence} />
+              )}
         </Flex>
       </Flex>
     </>
