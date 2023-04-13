@@ -1,6 +1,5 @@
 This project was made by Umar Ahmed, Umesh Oad, Jacob Braun, Haziq Khawaja, Parnian Razmjooei for CPSC 329 Final Project
-It is a password strength checker with information about how long it takes to brute force your password
-
+It is a password strength checker with information about how long it takes to brute force your password and tips for password security on a basic and advanced level
 
 HOW TO RUN:
 
