@@ -46,9 +46,9 @@ export default function PersonalizedTips({ suggestions, sequence }) {
               mt={1}
               mb={1}
               fontSize="15px"
-              fontWeight={500}
               key={idx}
               align='center'
+              textAlign='center'
             >
                 {item.pattern === 'dictionary' && (<Text>{`-The sequence "${filteredSequence[idx].token}" was found in our dictionary in only ${filteredSequence[idx].guesses} guesses. We suggest to change it`}</Text>)}
                 {item.pattern === 'repeat' && (<Text>{`-The sequence "${filteredSequence[idx].token}" repeats and was found in only ${filteredSequence[idx].guesses} guesses. We suggest to change it`}</Text>)} 

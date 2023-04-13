@@ -34,9 +34,10 @@ export default function PasswordContains(props) {
   }
 
   return (
-    <Stack spacing={3} align="center" justify="center" mt={5}>
-      <Text fontWeight={700} fontSize='19px'>Contains:</Text>
-      <Flex align="center" justify="space-between" width='100%'>
+    <>
+    <Text mt={5} mb={3} fontWeight={700} fontSize='19px'>Contains:</Text>
+    <Stack spacing={3} align="center" justify="center" direction='row' width='100%'>
+      <Flex align="center" justify="center" width='100%'>
         <Text mr={2}>8+ Characters</Text>
         <Icon
           fontSize={
@@ -53,7 +54,7 @@ export default function PasswordContains(props) {
           }
         ></Icon>
       </Flex>
-      <Flex align="center" justify="space-between" width='100%'>
+      <Flex align="center" justify="center" width='100%'>
         <Text mr={2}>Lower Case</Text>
         <Icon
           
@@ -70,7 +71,7 @@ export default function PasswordContains(props) {
           }
         ></Icon>
       </Flex>
-      <Flex align="center" justify="space-between" width='100%'>
+      <Flex align="center" justify="center" width='100%'>
         <Text mr={2}>Upper Case</Text>
         <Icon
           fontSize={hasUppercase(props.password) ? 29 : 26}
@@ -84,7 +85,9 @@ export default function PasswordContains(props) {
           }
         ></Icon>
       </Flex>
-      <Flex align="center" justify="space-between" width='100%'>
+    </Stack>
+    <Stack spacing={3} mt={3} align="center" justify="center" direction='row' width='70%'>
+      <Flex align="center" justify="center" width='100%'>
         <Text mr={2}>Numbers</Text>
         <Icon
           fontSize={hasNumber(props.password) ? 29 : 26}
@@ -98,7 +101,7 @@ export default function PasswordContains(props) {
           }
         ></Icon>
       </Flex>
-      <Flex align="center" justify="space-between" width='100%'>
+      <Flex align="center" justify="center" width='100%'>
         <Text mr={2}>Symbol</Text>
         <Icon
           fontSize={hasSymbol(props.password) ? 29 : 26}
@@ -112,6 +115,8 @@ export default function PasswordContains(props) {
           }
         ></Icon>
       </Flex>
+
     </Stack>
+  </>
   );
 }

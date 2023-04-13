@@ -52,7 +52,7 @@ export default function Password() {
         direction="column"
         justify="center"
         align="center"
-        mt={20}
+        mt={10}
         ml={{ base: '0%', lg: '6%' }}
       >
         <Flex
