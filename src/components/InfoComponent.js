@@ -30,11 +30,11 @@ export default function InfoComponent() {
             fontSize="30px"
             fontWeight={700}
             color="blue.400"
-            mb={3}
+            mb={5}
           >
             How is password cracking time calculated?
           </Text>
-          <Heading fontWeight={700} fontSize="15px">
+          <Heading fontWeight={700} fontSize="15px" mb={5}>
             Our Algorithm uses the
             <Link color="red.500" href="https://github.com/dropbox/zxcvbn">
               <Heading fontSize="15px" color="red.400">
