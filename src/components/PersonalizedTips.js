@@ -32,8 +32,8 @@ export default function PersonalizedTips({ suggestions, sequence }) {
       p={2}
     >
       <Text fontWeight={700}>Tips to improve YOUR password</Text>
-      {suggestions.length === 0 && sequence.length === 0 && (
-        <Text>No suggestions. Your password is excellent.</Text>
+      {suggestions.length === 0 && filteredSequence.length === 0 && (
+        <Text>...we have none. Good password!</Text>
       )}
       {suggestions.length > 0 &&
         suggestions.map((suggestion, idx) => {
