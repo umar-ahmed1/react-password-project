@@ -3,10 +3,12 @@ It is a password strength checker with information about how long it takes to br
 
 HOW TO RUN:
 
-Download the project then while in the directory of the project run "npm install"
+This project requires Node.js to run locally
 
-once that is complete run "npm start"
+1.Download the project then while in the directory of the project run "npm install"
 
-then navigate to local host
+2. run "npm start" (sometimes it can be "npm run dev")
+
+3.Navigate to localhost:3000 in your browser
 
 
